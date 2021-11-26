@@ -3,8 +3,9 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    volumes:
-      - ./backend:/app
+    #volumes:
+      # volume mapping for development
+      #- ./backend:/app
     ports:
       - 0.0.0.0:8000:8000
     command: julia ./src/Server.jl
@@ -13,8 +14,9 @@ services:
     build:
       context: ./game
       dockerfile: Dockerfile
-    volumes:
-      - ./game:/app
+    #volumes:
+      # volume mapping for development
+      #- ./game:/app
     ports:
       - 3000:3000
     environment:
