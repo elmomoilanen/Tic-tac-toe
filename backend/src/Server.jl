@@ -50,13 +50,29 @@ end
 
 function force_compile()
     sleep(5) # allow the server to start before running the following
+    println("run test requests...")
+
     HTTP.request("GET", "http://localhost:8000/api/game/v1")
+
     HTTP.request(
         "POST",
         "http://localhost:8000/api/game/v1?type=normal",
         [("Content-Type", "application/json")],
         """{"board":[0,0,0,0,0,0,0,0,0]}""",
     )
+    HTTP.request(
+        "POST",
+        "http://localhost:8000/api/game/v1?type=normal",
+        [("Content-Type", "application/json")],
+        """{"board":[0,0,0,0,-1,0,0,0,0]}""",
+    )
+    HTTP.request(
+        "POST",
+        "http://localhost:8000/api/game/v1?type=easy",
+        [("Content-Type", "application/json")],
+        """{"board":[0,0,0,0,-1,0,0,0,0]}""",
+    )
+    println("test requests completed")
 end
 
 function main()

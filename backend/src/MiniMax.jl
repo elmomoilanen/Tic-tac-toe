@@ -173,6 +173,12 @@ function compute_win_state(state::State)::Int8
 end
 
 function novice_move(state::State)::Int8
+    win_state::Int8 = compute_win_state(state)
+
+    if win_state == MARK_P1 || win_state == MARK_P2
+        return Int8(0)
+    end
+
     free_indices::Array{Int8,1} =
         filter(x -> x > 0, reshape(state.board .== 0, (length(state.board),)) .* IdxTable)
 
