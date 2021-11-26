@@ -9,7 +9,7 @@ Currently, app is directly usable only in development mode.
 To run the app, make sure to have Docker and Docker compose installed and run the following command in a shell
 
 ```bash
-docker compose -f docker-compose.yml up
+docker compose up
 ```
 
 After the services have started, open localhost:3000.
