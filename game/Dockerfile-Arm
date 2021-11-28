@@ -1,0 +1,15 @@
+FROM arm32v7/node:14-alpine
+
+WORKDIR /app
+
+RUN apk update && apk upgrade
+RUN apk add --update npm
+
+RUN addgroup -S alpine && adduser -S alpine -G alpine
+COPY --chown=alpine:alpine . .
+
+ENV NODE_ENV="production"
+
+RUN npm ci --production
+
+USER alpine
