@@ -26,6 +26,8 @@ Note that volume mappings for services are commented out in the compose file.
 
 ## Usage in Raspberry Pi 3 ##
 
+**This section under development right now! More content to be added soon**
+
 In this optional section, the app is deployed to Raspberry Pi 3 (armv7l) and served from there to local network using Nginx. To do this successfully, the mandatory first step is to install Docker, Docker compose for the Pi. It's also a good practise to set the Pi's IP address static if not done previously.
 
 As of writing this, there are some compatibility issues between alpine 3.14 and Raspberry Pi (affecting service *game*) and it required me to upgrade package *libseccomp2* as follows
