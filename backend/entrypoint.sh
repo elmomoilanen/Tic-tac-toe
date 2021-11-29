@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "starting server..."
+echo "starting be server..."
 exec "$@"
