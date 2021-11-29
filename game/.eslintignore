@@ -2,6 +2,10 @@ node_modules/
 build/
 public/
 
-Dockerfile
+.husky/
+
+Dockerfile*
 *.json
 .*
+
+README.md
