@@ -22,13 +22,11 @@ When finished with the app, bring everything down and remove containers and volu
 docker-compose down --volumes
 ```
 
-Note that volume mappings for services are commented out in the compose file.
+Note that volume mappings for services are commented out in this compose file.
 
 ## Usage in Raspberry Pi 3 ##
 
-**This section under development right now! More content to be added soon**
-
-In this optional section, the app is deployed to Raspberry Pi 3 (armv7l) and served from there to local network using Nginx. To do this successfully, the mandatory first step is to install Docker, Docker compose for the Pi. It's also a good practise to set the Pi's IP address static if not done previously.
+In this optional section, the app is deployed to Raspberry Pi 3 (armv7l) and served from there to local network using Nginx. To do this successfully, the mandatory first step is to install Docker and Docker compose for the Pi. It's also a good practise to set the Pi's IP address static if not done previously. Furthermore, a word of caution regarding the firewall rules of the raspberry pi: Docker bypasses UFW rules and the port 3000 might be exposed to the public network depending on the firewall settings on your internal network.
 
 As of writing this, there are some compatibility issues between alpine 3.14 and Raspberry Pi (affecting service *game*) and it required me to upgrade package *libseccomp2* as follows
 
@@ -39,6 +37,6 @@ dpkg -i libseccomp2_2.5.1-1_armhf.deb
 
 
 ```bash
-docker-compose -f docker-compose-Arm.yml up
+docker-compose -f docker-compose-arm.yml up
 ```
 
