@@ -2,15 +2,13 @@ services:
   be:
     build:
       context: ./backend
-      dockerfile: Dockerfile-Arm
-    expose:
-      - 8000
+      dockerfile: Dockerfile-arm
     command: julia ./src/Server.jl
 
   fe:
     build:
       context: ./game
-      dockerfile: Dockerfile-Arm
+      dockerfile: Dockerfile-arm
     ports:
       - 3000:80
     restart: always
