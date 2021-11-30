@@ -5,6 +5,10 @@ using HTTP
 include("./MiniMax.jl")
 using .MiniMax: play_bot_turn!, State, MARK_P1, MARK_P2, MARK_TIE, MARK_EMPTY
 
+Genie.config.cors_headers["Access-Control-Allow-Origin"] = "http://localhost:3000"
+Genie.config.cors_headers["Access-Control-Allow-Headers"] = "Content-Type"
+Genie.config.cors_headers["Access-Control-Allow-Methods"] = "GET, POST"
+
 const TransformIndex = Int8[1 2 3; 4 5 6; 7 8 9];
 const TransformWinner =
     Dict{Int8,String}(MARK_P1 => "player_1", MARK_P2 => "player_2", MARK_TIE => "tie")
