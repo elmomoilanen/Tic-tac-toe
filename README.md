@@ -8,7 +8,7 @@ In general, in order to use this app, Docker and Docker compose are mandatory de
 
 This section gives a short introduction on how to use this app in development mode.
 
-To run the app, run the following command in a shell.
+To run the app, run the following command in a shell
 
 ```bash
 docker-compose -f docker-compose.yml up
@@ -26,7 +26,7 @@ Note that volume mappings for services are commented out in this compose file.
 
 ## Usage in Raspberry Pi 3 ##
 
-In this optional section, the app is deployed to Raspberry Pi 3 (armv7l) and served from there to local network using Nginx. To do this successfully, the mandatory first step is to install Docker and Docker compose for the Pi. It's also a good practise to set the Pi's IP address static if not done previously. Furthermore, a word of caution regarding the firewall rules of the raspberry pi: Docker bypasses UFW rules and the port 3000 might be exposed to the public network depending on the firewall settings on your internal network.
+In this optional section, the app is deployed to Raspberry Pi 3 (armv7l) and served from there to local network using Nginx. To do this successfully, the mandatory first step is to install Docker and Docker compose for the Pi. It's also a good practise to set the Pi's IP address static if not done previously. Furthermore, a word of caution regarding the firewall rules of the raspberry pi: Docker bypasses UFW rules and the port 3000 might be exposed to the public network depending on the firewall settings on your private network.
 
 As of writing this, there are some compatibility issues between alpine 3.14 and Raspberry Pi (affecting service *game*) and it required me to upgrade package *libseccomp2* as follows
 
@@ -35,8 +35,10 @@ wget http://ftp.de.debian.org/debian/pool/main/libs/libseccomp/libseccomp2_2.5.1
 dpkg -i libseccomp2_2.5.1-1_armhf.deb
 ```
 
+Run then the following command to start the app
 
 ```bash
 docker-compose -f docker-compose-arm.yml up
 ```
 
+After the services have started (might take some time in first time) and backend test requests have been run (force compiles endpoints of the backend server), you can start playing by going to localhost:3000 in any device within your private network.
