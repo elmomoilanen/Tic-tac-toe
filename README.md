@@ -41,4 +41,4 @@ Run then the following command to start the app
 docker-compose -f docker-compose-arm.yml up
 ```
 
-After the services have started (might take some time in first time) and backend test requests have been run (force compiles endpoints of the backend server), you can start playing by going to localhost:3000 in any device within your private network.
+After the services have started (might take some time in first time) and backend test requests have been run (force compiles endpoints of the backend server), you can start playing by going to \<your raspberry pi ip\>:3000 in any device within your private network.
