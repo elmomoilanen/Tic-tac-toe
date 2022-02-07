@@ -4,13 +4,14 @@ WORKDIR /app
 
 RUN apk update && apk upgrade
 RUN apk add --update npm
-
 RUN addgroup -S alpine && adduser -S alpine -G alpine
-COPY --chown=alpine:alpine . .
 
 ENV NODE_ENV="production"
-
+COPY --chown=alpine:alpine package.json .
 RUN npm ci --production
+
+COPY --chown=alpine:alpine . .
+
 RUN npm run build
 
 USER alpine
