@@ -2,7 +2,7 @@ services:
   be:
     build:
       context: ./backend
-      dockerfile: Dockerfile-arm
+      dockerfile: Dockerfile.arm
     command: julia ./src/Server.jl
 
   fe:
