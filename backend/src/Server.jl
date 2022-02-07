@@ -56,26 +56,30 @@ function force_compile()
     sleep(5) # allow the server to start before running the following
     println("run test requests...")
 
-    HTTP.request("GET", "http://localhost:8000/api/game/v1")
+    base_url::String = "http://localhost:8000"
+    endpoint::String = "/api/game/v1"
+
+    HTTP.request("GET", "$(base_url)$(endpoint)")
 
     HTTP.request(
         "POST",
-        "http://localhost:8000/api/game/v1?type=normal",
+        "$(base_url)$(endpoint)?type=normal",
         [("Content-Type", "application/json")],
         """{"board":[0,0,0,0,0,0,0,0,0]}""",
     )
     HTTP.request(
         "POST",
-        "http://localhost:8000/api/game/v1?type=normal",
+        "$(base_url)$(endpoint)?type=normal",
         [("Content-Type", "application/json")],
         """{"board":[0,0,0,0,-1,0,0,0,0]}""",
     )
     HTTP.request(
         "POST",
-        "http://localhost:8000/api/game/v1?type=easy",
+        "$(base_url)$(endpoint)?type=easy",
         [("Content-Type", "application/json")],
         """{"board":[0,0,0,0,-1,0,0,0,0]}""",
     )
+    
     println("test requests completed")
 end
 
