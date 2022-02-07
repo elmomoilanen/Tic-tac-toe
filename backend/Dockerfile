@@ -6,8 +6,8 @@ USER julia
 WORKDIR /app
 
 RUN julia -e 'import Pkg; Pkg.update' && \
-    julia -e 'import Pkg; Pkg.add("HTTP"); Using HTTP' && \
-    julia -e 'import Pkg; Pkg.add("Genie"); Using Genie'
+    julia -e 'import Pkg; Pkg.add("HTTP"); using HTTP' && \
+    julia -e 'import Pkg; Pkg.add("Genie"); using Genie'
 
 COPY --chown=julia:julia . .
 
