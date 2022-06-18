@@ -2,6 +2,8 @@
 
 Backend service for the app. Responsible of computing bot player's next move in the game board which is done by applying the minimax algorithm with alpha-beta pruning. Julia's Genie web framework is used to provide the web server enabling communication with the frontend service of the game.
 
+---
+
 It's possible to play the game against the backend only though this might not be the most convenient way.
 
 To do this, build first an image from the Dockerfile
@@ -19,6 +21,8 @@ docker run -p 127.0.0.1:8000:8000 --rm tic-tac-toe/backend julia ./src/Server.jl
 Server running in the container listens port 8000 and thus the latter port should not be changed. This port was bound also to port 8000 on 127.0.0.1 of the host machine.
 
 On success, previous run command should result few initial prints to stdout indicating that the server started and completed couple test requests (used to force compile the backend).
+
+---
 
 To finally the play the game, notice that the bot player uses number 1 to mark its movements on the board and you must use number -1. Zeros on the board indicate empty slots. Board itself must be passed as an array of 9 elements (3x3 board) such that the first three elements correspond to the first row etc.
 
