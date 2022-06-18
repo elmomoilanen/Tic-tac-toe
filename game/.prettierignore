@@ -2,6 +2,5 @@ node_modules/
 build/
 public/
 
-.husky/
 Dockerfile*
 README.md

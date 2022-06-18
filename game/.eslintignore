@@ -1,8 +1,7 @@
 node_modules/
 build/
 public/
-
-.husky/
+nginx/
 
 Dockerfile*
 *.json

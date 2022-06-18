@@ -3,14 +3,9 @@ npm-debug.log
 
 .dockerignore
 .gitignore
-
 .eslintignore
 .eslintrc.json
 .prettierignore
-.prettierrc.json
 
-.husky
-
-lint-staged.js
 Dockerfile*
 README.md

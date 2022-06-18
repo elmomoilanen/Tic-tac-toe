@@ -14,7 +14,7 @@ const TransformWinner =
     Dict{Int8,String}(MARK_P1 => "player_1", MARK_P2 => "player_2", MARK_TIE => "tie")
 
 
-route("/api/game/v1", method = POST) do
+route("/api/game", method = POST) do
     game_type::String = getpayload(:type, "normal")
     payload::Dict{String,Any} = jsonpayload()
 
@@ -44,8 +44,8 @@ route("/api/game/v1", method = POST) do
     end
 end
 
-route("/api/game/v1", method = GET) do
-    """Hello from game backend!
+route("/api/game", method = GET) do
+    """Hello from the game backend!
 
     Play bot's turn by making a POST request with status of the current game board as payload.
     This payload must be an one-dimensional array, length of nine, and provided by key `board`.
@@ -57,7 +57,7 @@ function force_compile()
     println("run test requests...")
 
     base_url::String = "http://localhost:8000"
-    endpoint::String = "/api/game/v1"
+    endpoint::String = "/api/game"
 
     HTTP.request("GET", "$(base_url)$(endpoint)")
 

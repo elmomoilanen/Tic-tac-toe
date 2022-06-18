@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const baseURL = "/api/game/v1";
+const baseURL = "/api/game";
 
 const PLAYER_1_MARK = 1; // marks must be compatible with backend
 const PLAYER_2_MARK = -1;
