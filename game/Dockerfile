@@ -5,7 +5,7 @@ WORKDIR /app
 
 ENV NODE_ENV="development"
 
-COPY --chown=node:node package*.json .
+COPY --chown=node:node package*.json ./
 RUN npm install
 
 COPY --chown=node:node . .
